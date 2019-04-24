@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <h3>Chuong trinh chuyen doi tien te.</h3>
+    <table>
+        <tr>
+            <td width="200px" style="text-align: center">
+                Amount:
+            </td>
+            <td width="200px">
+                From Currency:
+            </td>
+            <td width="200px">
+                To Currency:
+                Amount:
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="amount"><br>
+            </td>
+            <td>
+                <select id="selectFromCurrency">
+                    <option value="VND" selected>VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="selectToCurrency">
+                    <option value="USD" selected>USD</option>
+                    <option value="VND">VND</option>
+                </select>
+            </td>
+
+            <td>
+                <button type="button" onclick="hamConvert()">Convert</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<div>
+    Result: <span id="result"></span>
+</div>
+<script>
+    function hamConvert() {
+        let amount = document.getElementById("amount").value;
+        let fromCur = document.getElementById("selectFromCurrency").value;
+        let toCur = document.getElementById("selectToCurrency").value;
+        let result;
+        if (fromCur === "VND" && toCur === 'USD') {
+            result = amount / 23000;
+        } else if (fromCur === "USD" && toCur === 'VND') {
+            result = amount * 23000;
+        } else {
+            result = amount;
+        }
+
+
+        document.getElementById("result").innerHTML = result + " " + toCur;
+    }
+
+
+</script>
+</body>
+</html>
